@@ -4,7 +4,7 @@ function Player (x){
 	this.piece = new Piece(x);
 	this.draw = new Draw;	
 //PIECE METHODS
-	this.dropOrReplace = function(){
+	this.dropOrReplace = function(){// check row ?
 		this.piece.dropSquares()
 		if(this.checkMove(this.piece.squaresTemp)){
 			this.finalizeMove()
@@ -27,7 +27,7 @@ function Player (x){
 			this.finalizeMove()
 		};
 	};
-	this.moveHorizontaly = function(offset){
+	this.moveHorizontaly = function(offset){// check row ?
 		this.piece.moveHorizontaly(offset)
 		if(this.checkMove(this.piece.squaresTemp)){
 			this.finalizeMove()
@@ -36,9 +36,10 @@ function Player (x){
 	this.finalizeMove = function(){
 		this.clearSquares(this.piece.squares)
 		this.unDrawSquares(this.piece.squares)
+			//check row
 		this.piece.squares = this.piece.squaresTemp;
 		this.writeSquares(this.piece.squares)
-		this.drawSquares(this.piece.squares)	
+		this.drawSquares(this.piece.squares)
 	};	
 //MATRIX METHODS	
 	this.checkMove = function(squares){
@@ -58,7 +59,7 @@ function Player (x){
 			this.matrix.write(this.piece.squares[i]);
 		};
 	};
-	this.solidifyAndCheckRow = function(squares){
+	this.solidifyAndCheckRow = function(squares){// separate solidify and check row
 		let rowsToCheck = []
 		for(i=0; i<this.piece.squares.length;i++){
 			this.matrix.solidify(this.piece.squares[i]);
@@ -90,9 +91,9 @@ function Player (x){
 	this.removeRow = function(row){
 		console.log(row + "removeRow!")
 		this.matrix.storage.splice(row, 1)
-		this.matrix.storage.splice(1,0, new Array(mapWidth).fill(["0","colour"]))
-		this.matrix.storage[1].push(["X","colour"])
-		this.matrix.storage[1].unshift(["X","colour"])
+		this.matrix.storage.splice(1,0, new Array(mapWidth).fill(["0","#FFFFFF"]))
+		this.matrix.storage[1].push(["X","#219E88"])
+		this.matrix.storage[1].unshift(["X","#219E88"])
 		this.unDrawAll()
 		this.drawAll()
 	};
@@ -109,17 +110,17 @@ function Player (x){
 		};
 	};
 	this.drawAll = function(){
-		for(y=0; y<mapHeight+1; y++){
-			for(x=0; x<mapWidth+1; x++){
-				this.draw.drawSquare([y,x,["0",this.matrix.readColour([y,x])]])
+		for(y=0; y<mapHeight+2; y++){
+			for(x=0; x<mapWidth+2; x++){
+				this.draw.drawSquare([y,x,[this.matrix.readState([y,x]),this.matrix.readColour([y,x])]])
 			};
 		};
 	return true
 	};
 	this.unDrawAll = function(){
-		for(y=0; y<mapHeight+1; y++){
-			for(x=0; x<mapWidth+1; x++){
-				this.draw.clearSquare([y,x,["0",this.matrix.readColour([y,x])]])
+		for(y=0; y<mapHeight+2; y++){
+			for(x=0; x<mapWidth+2; x++){
+				this.draw.clearSquare([y,x,[this.matrix.readState([y,x]),this.matrix.readColour([y,x])]])
 			};
 		};
 	return true

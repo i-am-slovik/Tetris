@@ -3,11 +3,11 @@ function Matrix(mapHeight, mapWidth){
 	this.generateMap = function(mapHeight, mapWidth){
 		for(i=0; i<mapHeight; i++){
 			this.storage[i] = new Array(mapWidth).fill(["0","#FFFFFF"]);
-			this.storage[i].push(["X","	#FFFFFF"]);
-			this.storage[i].unshift(["X","#FFFFFF"]);
+			this.storage[i].push(["X","#219E88"]);
+			this.storage[i].unshift(["X","#219E88"]);
 		};
-		this.storage.push(new Array(mapWidth+2).fill(["X","#FFFFFF"]));
-		this.storage.unshift(new Array(mapWidth+2).fill(["X","#FFFFFF"]));
+		this.storage.push(new Array(mapWidth+2).fill(["X","#219E88"]));
+		this.storage.unshift(new Array(mapWidth+2).fill(["X","#219E88"]));
 	};
 	this.check = function (square){ 
 		if (this.storage[square[0]][square[1]][0][0] !== "X"){

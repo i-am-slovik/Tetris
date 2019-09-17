@@ -1,15 +1,18 @@
 function Draw(){
 	this.drawSquare = function(square){
-		ctx.font = "25px Arial"
-		console.log(square)
-		console.log(square[2])
-		ctx.clearRect((square[1]*30),(square[0]*30)-30,30,30) 
-		ctx.fillStyle = square[2][1]
+		if(square[2][0]!=="0"){
+			ctx.fillStyle = "#000000"	
+			ctx.fillRect((square[1]*30),(square[0]*30),29,29)	
+			//ctx.fillStyle = "#219E88"	
+			//ctx.fillRect((square[1]*30)+3,(square[0]*30)+3,30,30)		
+			ctx.fillStyle = square[2][1]		
+			ctx.fillRect((square[1]*30)+1,(square[0]*30)+1,29,29)
+		}
+		else{
 		
-		ctx.fillRect((square[1]*30),(square[0]*30)-30,30,30)
+		};
 	};
 	this.clearSquare = function(square){
-		ctx.font = "30px Arial"
-		ctx.clearRect((square[1]*30),(square[0]*30)-30,30,30) 
+		ctx.clearRect((square[1]*30),(square[0]*30),30,30) 
 	};
 };

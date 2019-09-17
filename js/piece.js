@@ -1,22 +1,28 @@
 function pieceGenerator(pieceNumber){
 	switch (pieceNumber){
 		case 0:
-			pieceType = [[5,5,["0","#17202A"]],[5,4,["0","#17202A"]],[5,6,["0","#17202A"]],[6,5,["0","#17202A"]]]
+			let colour0 = "#581845"
+			pieceType = [[5,5,["p", colour0]],[5,4,["p",colour0]],[5,6,["p",colour0]],[6,5,["p",colour0]]]
 			return pieceType
 		case 1:
-			pieceType = [[5,5,["0","#17202A"]],[5,4,["0","#17202A"]],[5,6,["0","#17202A"]],[5,7,["0","#17202A"]]]
+			let colour1 = "#900C3F"
+			pieceType = [[5,5,["p",colour1]],[5,4,["p",colour1]],[5,6,["p",colour1]],[5,7,["p",colour1]]]
 			return pieceType
 		case 2:
-			pieceType = [[5,5,["0","#A569BD"]],[5,4,["0","#A569BD"]],[6,5,["0","#A569BD"]],[6,6,["0","#A569BD"]]]
+			let colour2 = "#C70039"
+			pieceType = [[5,5,["p",colour2]],[5,4,["p",colour2]],[6,5,["p",colour2]],[6,6,["p",colour2]]]
 			return pieceType
 		case 3:
-			pieceType = [[5,5,["0","#5DADE2"]],[6,5,["0","#5DADE2"]],[6,4,["0","#5DADE2"]],[5,6,["0","#5DADE2"]]]
+			let colour3 = "#FF5733"
+			pieceType = [[5,5,["p",colour3]],[6,5,["p",colour3]],[6,4,["p",colour3]],[5,6,["p",colour3]]]
 			return pieceType
 		case 4:
-			pieceType = [[5,5,["0","#16A085"]],[5,4,["0","#16A085"]],[5,6,["0","#16A085"]],[6,6,["0","#16A085"]]]
+			let colour4 = "#FFC300"
+			pieceType = [[5,5,["p",colour4]],[5,4,["p",colour4]],[5,6,["p",colour4]],[6,6,["p",colour4]]]
 			return pieceType
 		case 5:
-			pieceType = [[5,5,["0","#CB4335"]],[5,4,["0","#CB4335"]],[5,6,["0","#CB4335"]],[6,4,["0","#CB4335"]]]
+			let colour5 = "#DAF7A6"
+			pieceType = [[5,5,["p",colour5]],[5,4,["p",colour5]],[5,6,["p",colour5]],[6,4,["p",colour5]]]
 			return pieceType
 	};
 };
