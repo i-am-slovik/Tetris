@@ -16,7 +16,7 @@ function Player (x){
 				this.drawSquares(this.piece.squares)
 			}
 			else{
-				alert("Spierdalaj Huju!")
+				alert("game over")
 				clearInterval(play);
 			};
 		};	
