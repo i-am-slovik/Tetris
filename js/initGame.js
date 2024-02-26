@@ -1,8 +1,8 @@
 
 var x= pieceGenerator(Math.round(Math.random()*5))
-var huj = new Player(x)
-huj.matrix.generateMap(mapHeight, mapWidth)
-huj.drawAll()
+var player1 = new Player(x)
+player1.matrix.generateMap(mapHeight, mapWidth)
+player1.drawAll()
 
 var play = setInterval(game,750)
 var play;
@@ -11,16 +11,16 @@ var play;
 function keystroke(e){
 	switch (e.key){
 		case "ArrowLeft":
-			huj.moveHorizontaly(-1)
+			player1.moveHorizontaly(-1)
 			return 
 		case "ArrowRight":
-			huj.moveHorizontaly(1)
+			player1.moveHorizontaly(1)
 			return 
 		case "ArrowUp":
-			huj.rotatePiece(-1)
+			player1.rotatePiece(-1)
 			return 
 		case "ArrowDown":
-			huj.dropOrReplace()
+			player1.dropOrReplace()
 			return 
 		case " ":
 			//playPause()
@@ -39,6 +39,6 @@ function playPause (){
 	};
 };
 function game(){
-	huj.dropOrReplace()
+	player1.dropOrReplace()
 };
 window.addEventListener("keydown", keystroke);
